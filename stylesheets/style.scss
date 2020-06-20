@@ -4,12 +4,10 @@
 }
 
 body {
-  background: rgb(68, 75, 85);
   font-family: 'Press Start 2P', cursive;
 }
 
 p {
-  color: rgb(208, 209, 202);
   line-height: 1.5em;
 }
 
@@ -20,10 +18,6 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  canvas {
-    margin: 2em 0;
-  }
 }
 
 .high-scores {

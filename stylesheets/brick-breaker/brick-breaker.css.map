@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,qBAAqB,CAAC;EACpB,MAAM,EAAE,eAAe;EACvB,MAAM,EAAE,KAAK;CAEd;;AAED,AAAA,IAAI,CAAC;EACH,UAAU,EAAE,OAAkB;CAC/B;;AAED,AAAA,CAAC,CAAC;EACA,KAAK,EAAE,OAAe;CACvB",
+    "sources": [
+        "brick-breaker.scss"
+    ],
+    "names": [],
+    "file": "brick-breaker.css"
+}

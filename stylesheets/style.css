@@ -4,12 +4,10 @@
 }
 
 body {
-  background: #444b55;
   font-family: 'Press Start 2P', cursive;
 }
 
 p {
-  color: #d0d1ca;
   line-height: 1.5em;
 }
 
@@ -29,10 +27,6 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.game-container canvas {
-  margin: 2em 0;
 }
 
 .high-scores .high-score {
