@@ -6,7 +6,7 @@ window.onload = () => {
 
   document.addEventListener("keydown", playerInput);
 
-  // render X times per second
+  // RENDER X/SEC
   const x = 14;
   setInterval(drawSnake, 1000 / x);
 
@@ -14,7 +14,7 @@ window.onload = () => {
   currentScore = 0;
 };
 
-// game world
+// GAME CANVAS
 const gridSize = (tileSize = 20); // 20 x 20 = 400
 let nextX = (nextY = 0);
 
@@ -64,6 +64,10 @@ const drawSnake = () => {
   context.fillStyle = "rgb(191, 204, 1)";
   context.fillRect(0, 0, canvas.width, canvas.height);
 
+  // APPLE FILL
+  context.fillStyle = "rgb(64, 46, 1)";
+  context.fillRect(appleX * tileSize, appleY * tileSize, tileSize, tileSize);
+
   // SNAKE FILL
   context.fillStyle = "rgb(114, 96, 1)";
   for (var i = 0; i < snakeTrail.length; i++) {
@@ -80,10 +84,6 @@ const drawSnake = () => {
       // health -= 1 AFTER game start
     }
   }
-
-  // APPLE FILL
-  context.fillStyle = "rgb(64, 46, 1)";
-  context.fillRect(appleX * tileSize, appleY * tileSize, tileSize, tileSize);
 
   // SET SNAKE TRAIL
   snakeTrail.push({ x: snakeX, y: snakeY });
