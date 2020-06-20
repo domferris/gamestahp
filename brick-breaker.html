@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Snake</title>
+    <meta name="description" content="Classic.">
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="./stylesheets/style.css">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <section class="game-container">
+      <aside class="game-info">
+        <p>score: <span class="current-score-display">0</span></p>
+      </aside>
+      <canvas id="brick-breaker-canvas" width="400" height="400"></canvas>
+      <p class="high-scores">
+        high scores<br>
+        -----------<br>
+        <span class="high-score"><span class="high-score-initials">DDR</span> <span class="high-score-num">99</span></span>
+        <span class="high-score"><span class="high-score-initials">DCF</span> <span class="high-score-num">91</span></span>
+        <span class="high-score"><span class="high-score-initials">OPP</span> <span class="high-score-num">91</span></span>
+        <span class="high-score"><span class="high-score-initials">NWA</span> <span class="high-score-num">87</span></span>
+        <span class="high-score"><span class="high-score-initials">MRE</span> <span class="high-score-num">65</span></span>
+      </p>
+    </section>
+
+    <script src="./javascript/snake.js"></script>
+  </body>
+</html>
