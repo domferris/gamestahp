@@ -10,4 +10,13 @@ body {
 p {
   color: #191919;
 }
+
+.high-scores .high-score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
 /*# sourceMappingURL=brick-breaker.css.map */

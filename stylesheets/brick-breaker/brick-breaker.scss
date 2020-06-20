@@ -11,3 +11,10 @@ body {
 p {
   color: rgb(25, 25, 25);
 }
+
+.high-scores {
+  .high-score {
+    display: flex;
+    justify-content: space-between;
+  }
+}

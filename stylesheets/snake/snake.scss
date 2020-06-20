@@ -9,3 +9,10 @@ body {
 p {
   color: rgb(208, 209, 202);
 }
+
+.high-scores {
+  .high-score {
+    display: flex;
+    justify-content: space-between;
+  }
+}
