@@ -1,36 +1,39 @@
-var canvas, ctx;
+let canvas, context, health, currentScore;
 
-window.onload = function () {
+window.onload = () => {
   canvas = document.getElementById("canvas");
-  ctx = canvas.getContext("2d");
+  context = canvas.getContext("2d");
 
-  document.addEventListener("keydown", keyDownEvent);
+  document.addEventListener("keydown", playerInput);
 
   // render X times per second
-  var x = 14;
-  setInterval(draw, 1000 / x);
+  const x = 14;
+  setInterval(drawSnake, 1000 / x);
+
+  health = 3;
+  currentScore = 0;
 };
 
 // game world
-var gridSize = (tileSize = 20); // 20 x 20 = 400
-var nextX = (nextY = 0);
+const gridSize = (tileSize = 20); // 20 x 20 = 400
+let nextX = (nextY = 0);
 
-// snake
-var defaultTailSize = 4;
-var tailSize = defaultTailSize;
-var snakeTrail = [];
-var snakeX = (snakeY = 10);
+// SNAKE PROPERTIES
+const defaultTailSize = 4;
+let tailSize = defaultTailSize;
+const snakeTrail = [];
+let snakeX = (snakeY = 10);
 
-// apple
-var appleX = (appleY = 15);
+// APPLE POSITION
+let appleX = (appleY = 15);
 
-// draw
-function draw() {
-  // move snake in next pos
+// DRAW SNAKE
+const drawSnake = () => {
+  // MOVE SNAKE TO NEXT POSITION
   snakeX += nextX;
   snakeY += nextY;
 
-  // snake over game world?
+  // SNAKE LEAVES CANVAS/WRAP?
   if (snakeX < 0) {
     snakeX = gridSize - 1;
   }
@@ -45,48 +48,53 @@ function draw() {
     snakeY = 0;
   }
 
-  //snake bite apple?
+  // SNAKE BITES APPLE?
+  const currentScoreDisplay = document.querySelector(".current-score-display");
   if (snakeX == appleX && snakeY == appleY) {
     tailSize++;
 
     appleX = Math.floor(Math.random() * gridSize);
     appleY = Math.floor(Math.random() * gridSize);
+
+    currentScore += 1;
+    currentScoreDisplay.innerHTML = currentScore;
   }
 
-  //paint background
-  ctx.fillStyle = "rgb(191, 204, 1)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  // BACKGROUND FILL
+  context.fillStyle = "rgb(191, 204, 1)";
+  context.fillRect(0, 0, canvas.width, canvas.height);
 
-  // paint snake
-  ctx.fillStyle = "rgb(114, 96, 1)";
+  // SNAKE FILL
+  context.fillStyle = "rgb(114, 96, 1)";
   for (var i = 0; i < snakeTrail.length; i++) {
-    ctx.fillRect(
+    context.fillRect(
       snakeTrail[i].x * tileSize,
       snakeTrail[i].y * tileSize,
       tileSize,
       tileSize
     );
 
-    //snake bites it's tail?
+    // SNAKE BITES TAIL?
     if (snakeTrail[i].x == snakeX && snakeTrail[i].y == snakeY) {
       tailSize = defaultTailSize;
+      // health -= 1 AFTER game start
     }
   }
 
-  // paint apple
-  ctx.fillStyle = "rgb(0, 0, 0)";
-  ctx.fillRect(appleX * tileSize, appleY * tileSize, tileSize, tileSize);
+  // APPLE FILL
+  context.fillStyle = "rgb(64, 46, 1)";
+  context.fillRect(appleX * tileSize, appleY * tileSize, tileSize, tileSize);
 
-  //set snake trail
+  // SET SNAKE TRAIL
   snakeTrail.push({ x: snakeX, y: snakeY });
   while (snakeTrail.length > tailSize) {
     snakeTrail.shift();
   }
-}
+};
 
-// input
-function keyDownEvent(e) {
-  switch (e.keyCode) {
+// PLAYER INPUT
+const playerInput = (event) => {
+  switch (event.keyCode) {
     case 37:
       nextX = -1;
       nextY = 0;
@@ -104,4 +112,4 @@ function keyDownEvent(e) {
       nextY = 1;
       break;
   }
-}
+};
