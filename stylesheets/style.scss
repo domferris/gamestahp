@@ -1,10 +1,13 @@
+$red: rgb(218, 54, 44);
+$black: rgb(25, 25, 25);
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  background: rgb(255, 255, 255);
+  background: white;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -32,15 +35,13 @@ main {
   align-items: center;
 
   a {
-    color: rgb(25, 25, 25);
+    color: $black;
     text-decoration: none;
     border-bottom: 3px solid transparent;
     margin-bottom: 0.5em;
 
-
     &:hover {
-      border-bottom: 3px solid rgb(218, 54, 44);
-
+      border-bottom: 3px solid $red;
     }
   }
 }
@@ -55,9 +56,9 @@ main {
 }
 
 .txt-black {
-  color: rgb(25, 25, 25);
+  color: $black;
 }
 
 .txt-red {
-  color: rgb(218, 54, 44);
+  color: $red;
 }
