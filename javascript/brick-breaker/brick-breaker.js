@@ -1,12 +1,14 @@
+import Paddle from "./paddle.mjs";
+
 const canvas = document.getElementById("brick-breaker-canvas");
 const context = canvas.getContext("2d");
 
-// CLEAR CANVAS
-context.clearRect(0, 0, 800, 600);
+const GAME_WIDTH = 800;
+const GAME_HEIGHT = 600;
 
-context.fillStyle = "red";
-context.fillRect(20, 20, 100, 100);
+// CLEAR CANVAS
+context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
 // PADDLE
-context.fillStyle = "blue";
-context.fillRect(200, 200, 50, 50);
+const paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT);
+paddle.draw(context);
