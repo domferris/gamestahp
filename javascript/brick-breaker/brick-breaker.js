@@ -12,7 +12,7 @@ const paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT);
 paddle.draw(context);
 
 // PLAYER INPUT
-new InputHandler();
+new InputHandler(paddle);
 
 let lastTime = 0;
 
