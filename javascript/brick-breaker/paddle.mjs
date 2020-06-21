@@ -10,7 +10,12 @@ export default class Paddle {
   }
 
   draw(context) {
-    context.fillStyle = "rgb(88, 88, 88)";
+    context.fillStyle = "rgb(45, 45, 45)";
     context.fillRect(this.position.x, this.position.y, this.width, this.height);
+  }
+
+  update(deltaTime) {
+    if (!deltaTime) return;
+    this.position.x += 5 / deltaTime;
   }
 }
