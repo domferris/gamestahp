@@ -77,6 +77,24 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: #da362c;
+}
+
+.arrow-back {
+  position: absolute;
+  font-size: 2rem;
+  text-decoration: none;
+  top: 10px;
+  left: 10px;
+  color: #191919;
+}
+
+.arrow-back:hover {
+  color: #da362c;
+}
+
+.arrow-back:active {
+  color: #191919;
 }
 
 .txt-black {
