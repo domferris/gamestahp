@@ -1,6 +1,4 @@
-import Paddle from "./paddle.mjs";
-import InputHandler from "./input.mjs";
-import Ball from "./ball.js";
+import Game from "./game.js";
 
 const canvas = document.getElementById("brick-breaker-canvas");
 const context = canvas.getContext("2d");
@@ -8,14 +6,8 @@ const context = canvas.getContext("2d");
 const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600;
 
-// PADDLE
-const paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT);
-
-// BALL
-const ball = new Ball(GAME_WIDTH, GAME_HEIGHT);
-
-// PLAYER INPUT
-new InputHandler(paddle);
+const game = new Game(GAME_WIDTH, GAME_HEIGHT);
+game.start();
 
 let lastTime = 0;
 
@@ -26,11 +18,8 @@ const gameLoop = (timestamp) => {
   // CLEAR CANVAS
   context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-  paddle.update(deltaTime);
-  paddle.draw(context);
-
-  ball.update(deltaTime);
-  ball.draw(context);
+  game.update(deltaTime);
+  game.draw(context);
 
   requestAnimationFrame(gameLoop);
 };
