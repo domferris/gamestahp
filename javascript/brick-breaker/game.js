@@ -1,6 +1,7 @@
 import Paddle from "./paddle.js";
 import InputHandler from "./input.js";
 import Ball from "./ball.js";
+import Brick from "./brick.js";
 
 export default class Game {
   constructor(gameWidth, gameHeight) {
@@ -15,7 +16,13 @@ export default class Game {
     // BALL
     this.ball = new Ball(this);
 
-    this.gameObjects = [this.paddle, this.ball];
+    // BRICKS
+    let bricks = [];
+    for (let i = 0; i <= 10; i++) {
+      bricks.push(new Brick(this, { x: i * 52, y: 30 }));
+    }
+
+    this.gameObjects = [this.paddle, this.ball, ...bricks];
 
     // PLAYER INPUT
     new InputHandler(this.paddle);
