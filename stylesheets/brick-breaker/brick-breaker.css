@@ -11,6 +11,10 @@ p {
   color: #191919;
 }
 
+img {
+  display: none;
+}
+
 .high-scores .high-score {
   display: -webkit-box;
   display: -ms-flexbox;
