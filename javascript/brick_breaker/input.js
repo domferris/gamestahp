@@ -1,3 +1,5 @@
+import { GAMESTATE } from "./game.js";
+
 export default class InputHandler {
   constructor(game, paddle) {
     document.addEventListener("keydown", (event) => {
@@ -12,9 +14,13 @@ export default class InputHandler {
         case 68: // D
           paddle.moveRight();
           break;
-        case 27: // ESC
+        // PLAY/PAUSE
         case 32: // SPACEBAR
-          game.togglePause();
+          if (game.gamestate === GAMESTATE.MENU) {
+            game.start();
+          } else {
+            game.togglePause();
+          }
           break;
       }
     });

@@ -12,7 +12,7 @@ export default class Ball {
 
     this.position = {
       x: game.gameWidth / 2 - this.size / 2,
-      y: game.paddle.position.y,
+      y: game.paddle.position.y - this.size,
     };
 
     this.speed = { x: 4, y: -2 };

@@ -1,10 +1,10 @@
 import InputHandler from "./input.js";
 import Paddle from "./paddle.js";
 import Ball from "./ball.js";
-import Brick from "./brick.js";
+// import Brick from "./brick.js";
 import { buildLevel, level1 } from "./levels.js";
 
-const GAMESTATE = {
+export const GAMESTATE = {
   PAUSED: 0,
   RUNNING: 1,
   MENU: 2,
@@ -15,10 +15,8 @@ export default class Game {
   constructor(gameWidth, gameHeight) {
     this.gameWidth = gameWidth;
     this.gameHeight = gameHeight;
-  }
 
-  start() {
-    this.gamestate = GAMESTATE.RUNNING;
+    this.gamestate = GAMESTATE.MENU;
 
     // PADDLE
     this.paddle = new Paddle(this);
@@ -26,17 +24,29 @@ export default class Game {
     // BALL
     this.ball = new Ball(this);
 
-    // BRICKS
-    let bricks = buildLevel(this, level1);
-
-    this.gameObjects = [this.paddle, this.ball, ...bricks];
+    // BRICKS TO BE
+    this.gameObjects = [];
 
     // PLAYER INPUT
     new InputHandler(this, this.paddle);
   }
 
+  start() {
+    if (this.gamestate !== GAMESTATE.MENU) return;
+
+    // LOAD BRICKS
+    let bricks = buildLevel(this, level1);
+    this.gameObjects = [this.paddle, this.ball, ...bricks];
+
+    this.gamestate = GAMESTATE.RUNNING;
+  }
+
   update(deltaTime) {
-    if (this.gamestate == GAMESTATE.PAUSED) return;
+    if (
+      this.gamestate === GAMESTATE.PAUSED ||
+      this.gamestate === GAMESTATE.MENU
+    )
+      return;
 
     this.gameObjects.map((gameObject) => gameObject.update(deltaTime));
 
@@ -48,7 +58,7 @@ export default class Game {
   draw(context) {
     this.gameObjects.map((gameObject) => gameObject.draw(context));
 
-    if (this.gamestate == GAMESTATE.PAUSED) {
+    if (this.gamestate === GAMESTATE.MENU) {
       context.rect(0, 0, this.gameWidth, this.gameHeight);
       context.fillStyle = "rgba(0, 0, 0, 0.2)";
       context.fill();
@@ -56,12 +66,27 @@ export default class Game {
       context.font = "30px Arial";
       context.fillStyle = "white";
       context.textAlign = "center";
-      context.fillText("paused", this.gameWidth / 2, this.gameHeight / 2);
+      context.fillText(
+        "Press SPACEBAR to Play",
+        this.gameWidth / 2,
+        this.gameHeight / 2
+      );
+    }
+
+    if (this.gamestate === GAMESTATE.PAUSED) {
+      context.rect(0, 0, this.gameWidth, this.gameHeight);
+      context.fillStyle = "rgba(0, 0, 0, 0.2)";
+      context.fill();
+
+      context.font = "30px Arial";
+      context.fillStyle = "white";
+      context.textAlign = "center";
+      context.fillText("❚ ❚", this.gameWidth / 2, this.gameHeight / 2);
     }
   }
 
   togglePause() {
-    if (this.gamestate == GAMESTATE.PAUSED) {
+    if (this.gamestate === GAMESTATE.PAUSED) {
       this.gamestate = GAMESTATE.RUNNING;
     } else {
       this.gamestate = GAMESTATE.PAUSED;
