@@ -28,6 +28,10 @@ export default class Game {
 
   update(deltaTime) {
     this.gameObjects.map((gameObject) => gameObject.update(deltaTime));
+
+    this.gameObjects = this.gameObjects.filter(
+      (gameObject) => !gameObject.markedForDeletion
+    );
   }
 
   draw(context) {
