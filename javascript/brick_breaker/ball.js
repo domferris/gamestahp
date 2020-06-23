@@ -10,9 +10,12 @@ export default class Ball {
     this.image = document.getElementById("img-ball");
     this.size = 16;
 
-    this.position = { x: 10, y: 10 };
+    this.position = {
+      x: game.gameWidth / 2 - this.size / 2,
+      y: game.paddle.position.y,
+    };
 
-    this.speed = { x: 4, y: 2 };
+    this.speed = { x: 4, y: -2 };
   }
 
   draw(context) {
