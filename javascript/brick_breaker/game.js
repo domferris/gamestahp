@@ -27,6 +27,8 @@ export default class Game {
     // BRICKS TO BE
     this.gameObjects = [];
 
+    this.lives = 1;
+
     // PLAYER INPUT
     new InputHandler(this, this.paddle);
   }
@@ -42,9 +44,12 @@ export default class Game {
   }
 
   update(deltaTime) {
+    if (this.lives === 0) this.gamestate = GAMESTATE.GAMEOVER;
+
     if (
       this.gamestate === GAMESTATE.PAUSED ||
-      this.gamestate === GAMESTATE.MENU
+      this.gamestate === GAMESTATE.MENU ||
+      this.gamestate == GAMESTATE.GAMEOVER
     )
       return;
 
@@ -82,6 +87,17 @@ export default class Game {
       context.fillStyle = "white";
       context.textAlign = "center";
       context.fillText("❚ ❚", this.gameWidth / 2, this.gameHeight / 2);
+    }
+
+    if (this.gamestate === GAMESTATE.GAMEOVER) {
+      context.rect(0, 0, this.gameWidth, this.gameHeight);
+      context.fillStyle = "rgba(0, 0, 0, 0.2)";
+      context.fill();
+
+      context.font = "30px Arial";
+      context.fillStyle = "white";
+      context.textAlign = "center";
+      context.fillText("GAME OVER", this.gameWidth / 2, this.gameHeight / 2);
     }
   }
 
