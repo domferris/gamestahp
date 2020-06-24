@@ -16,8 +16,13 @@ export default class Brick {
 
   update(deltaTime) {
     if (detectCollision(this.game.ball, this)) {
+      const scoreDisplay = document.querySelector(".score-display");
+
       this.game.ball.speed.y = -this.game.ball.speed.y;
       this.markedForDeletion = true;
+
+      this.game.score++;
+      scoreDisplay.innerHTML = this.game.score;
     }
   }
 

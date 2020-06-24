@@ -28,6 +28,7 @@ export default class Game {
     this.gameObjects = [];
 
     this.lives = 3;
+    this.score = 0;
 
     // PLAYER INPUT
     new InputHandler(this, this.paddle);
