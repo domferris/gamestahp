@@ -2,13 +2,14 @@ import InputHandler from "./input.js";
 import Paddle from "./paddle.js";
 import Ball from "./ball.js";
 // import Brick from "./brick.js";
-import { buildLevel, level1 } from "./levels.js";
+import { buildLevel, level1, level2 } from "./levels.js";
 
 export const GAMESTATE = {
   PAUSED: 0,
   RUNNING: 1,
   MENU: 2,
   GAMEOVER: 3,
+  NEWLEVEL: 4,
 };
 
 export default class Game {
@@ -26,20 +27,30 @@ export default class Game {
 
     // BRICKS TO BE
     this.gameObjects = [];
+    this.bricks = [];
 
     this.lives = 3;
     this.score = 0;
+
+    this.levels = [level1, level2];
+    this.currentLevel = 0;
 
     // PLAYER INPUT
     new InputHandler(this, this.paddle);
   }
 
   start() {
-    if (this.gamestate !== GAMESTATE.MENU) return;
+    if (
+      this.gamestate !== GAMESTATE.MENU &&
+      this.gamestate !== GAMESTATE.NEWLEVEL
+    )
+      return;
 
     // LOAD BRICKS
-    let bricks = buildLevel(this, level1);
-    this.gameObjects = [this.paddle, this.ball, ...bricks];
+    this.bricks = buildLevel(this, this.levels[this.currentLevel]);
+    this.gameObjects = [this.paddle, this.ball];
+
+    this.ball.reset();
 
     this.gamestate = GAMESTATE.RUNNING;
   }
@@ -54,15 +65,23 @@ export default class Game {
     )
       return;
 
-    this.gameObjects.map((gameObject) => gameObject.update(deltaTime));
+    if (this.bricks.length === 0) {
+      this.currentLevel++;
+      this.gamestate = GAMESTATE.NEWLEVEL;
+      this.start();
+    }
 
-    this.gameObjects = this.gameObjects.filter(
-      (gameObject) => !gameObject.markedForDeletion
+    [...this.gameObjects, ...this.bricks].map((gameObject) =>
+      gameObject.update(deltaTime)
     );
+
+    this.bricks = this.bricks.filter((brick) => !brick.markedForDeletion);
   }
 
   draw(context) {
-    this.gameObjects.map((gameObject) => gameObject.draw(context));
+    [...this.gameObjects, ...this.bricks].map((gameObject) =>
+      gameObject.draw(context)
+    );
 
     if (this.gamestate === GAMESTATE.MENU) {
       context.rect(0, 0, this.gameWidth, this.gameHeight);
