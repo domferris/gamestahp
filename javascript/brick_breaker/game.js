@@ -1,7 +1,6 @@
 import InputHandler from "./input.js";
 import Paddle from "./paddle.js";
 import Ball from "./ball.js";
-// import Brick from "./brick.js";
 import { buildLevel, level1, level2 } from "./levels.js";
 
 export const GAMESTATE = {

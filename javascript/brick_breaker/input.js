@@ -4,12 +4,12 @@ export default class InputHandler {
   constructor(game, paddle) {
     document.addEventListener("keydown", (event) => {
       switch (event.keyCode) {
-        // MOVEMENT LEFT
+        // PADDLE MOVEMENT LEFT
         case 37: // ARROW LEFT
         case 65: // A
           paddle.moveLeft();
           break;
-        // MOVEMENT RIGHT
+        // PADDLE MOVEMENT RIGHT
         case 39: // ARROW RIGHT
         case 68: // D
           paddle.moveRight();
@@ -25,6 +25,7 @@ export default class InputHandler {
       }
     });
 
+    // PREVENT STUTTER
     document.addEventListener("keyup", (event) => {
       switch (event.keyCode) {
         // MOVEMENT LEFT
