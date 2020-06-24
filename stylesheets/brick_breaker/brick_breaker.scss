@@ -1,0 +1,24 @@
+#brick-breaker-canvas {
+  border: 1px solid black;
+  margin: 2em 0;
+
+}
+
+body {
+  background: rgb(230, 230, 230);
+}
+
+p {
+  color: rgb(25, 25, 25);
+}
+
+img {
+  display: none;
+}
+
+.high-scores {
+  .high-score {
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -1,16 +1,49 @@
+$red: rgb(218, 54, 44);
+$black: rgb(25, 25, 25);
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  background: rgb(68, 75, 85);
+  background: white;
   font-family: 'Press Start 2P', cursive;
 }
 
-p {
-  color: rgb(208, 209, 202);
+h1 {
+  margin-bottom: 1.5em;
+}
+
+p, a {
   line-height: 1.5em;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    color: $black;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: 0.5em;
+
+    &:hover {
+      border-bottom: 3px solid $red;
+    }
+  }
 }
 
 .game-container {
@@ -20,15 +53,30 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: $red;
+}
 
-  canvas {
-    margin: 2em 0;
+.arrow-back {
+  position: absolute;
+  font-size: 2rem;
+  text-decoration: none;
+  top: 10px;
+  left: 10px;
+  color: $black;
+
+  &:hover {
+    color: $red;
+  }
+  
+  &:active {
+    color: $black;
   }
 }
 
-.high-scores {
-  .high-score {
-    display: flex;
-    justify-content: space-between;
-  }
+.txt-black {
+  color: $black;
+}
+
+.txt-red {
+  color: $red;
 }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>GameStahp - Brick Breaker</title>
+    <meta name="description" content="Classic.">
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="./stylesheets/brick_breaker/brick_breaker.css">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <a href="index.html" class="arrow-back">&lt;</a>
+    <section class="game-container">
+      <img id="img-ball" src="./assets/images/brick_breaker/ball.png" alt="">
+      <img id="img-brick" src="./assets/images/brick_breaker/brick.png" alt="">
+      <aside class="game-info">
+        <p>lives: <span class="lives-display">3</span></p>
+        <p>score: <span class="score-display">0</span></p>
+      </aside>
+      <canvas id="brick-breaker-canvas" width="800" height="600"></canvas>
+    </section>
+
+    <script type="module" src="./javascript/brick_breaker/brick_breaker.js"></script>
+  </body>
+</html>

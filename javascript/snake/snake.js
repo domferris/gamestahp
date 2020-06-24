@@ -1,7 +1,7 @@
 let canvas, context, health, currentScore;
 
 window.onload = () => {
-  canvas = document.getElementById("canvas");
+  canvas = document.getElementById("snake-canvas");
   context = canvas.getContext("2d");
 
   document.addEventListener("keydown", playerInput);
