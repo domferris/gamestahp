@@ -10,9 +10,16 @@ export default class Ball {
     this.image = document.getElementById("img-ball");
     this.size = 16;
 
+    this.reset();
+  }
+
+  reset() {
     this.position = {
-      x: game.gameWidth / 2 - this.size / 2,
-      y: game.paddle.position.y - this.size,
+      x:
+        this.game.paddle.position.x +
+        this.game.paddle.width / 2 -
+        this.size / 2,
+      y: this.game.paddle.position.y - this.size,
     };
 
     this.speed = { x: 4, y: -2 };
@@ -37,9 +44,18 @@ export default class Ball {
       this.speed.x = -this.speed.x;
     }
 
-    // TOP+BOT WALL COLLISION
-    if (this.position.y + this.size > this.gameHeight || this.position.y < 0) {
+    // TOP WALL COLLISION
+    if (this.position.y < 0) {
       this.speed.y = -this.speed.y;
+    }
+
+    // BOT WALL COLLISION
+    if (this.position.y + this.size > this.gameHeight) {
+      const livesDisplay = document.querySelector(".lives-display");
+
+      this.game.lives--;
+      livesDisplay.innerHTML = this.game.lives;
+      this.reset();
     }
 
     // PADDLE COLLISION

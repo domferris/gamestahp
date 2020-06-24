@@ -27,7 +27,7 @@ export default class Game {
     // BRICKS TO BE
     this.gameObjects = [];
 
-    this.lives = 1;
+    this.lives = 3;
 
     // PLAYER INPUT
     new InputHandler(this, this.paddle);
