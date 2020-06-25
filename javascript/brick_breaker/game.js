@@ -60,7 +60,7 @@ export default class Game {
     if (
       this.gamestate === GAMESTATE.PAUSED ||
       this.gamestate === GAMESTATE.MENU ||
-      this.gamestate == GAMESTATE.GAMEOVER
+      this.gamestate === GAMESTATE.GAMEOVER
     )
       return;
 

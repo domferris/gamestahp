@@ -1,3 +1,11 @@
+.arrow-back {
+  color: rgb(25, 25, 25);
+
+  &:hover {
+    color: rgb(184, 184, 184);
+  }
+}
+
 #brick-breaker-canvas {
   border: 1px solid black;
   margin: 2em 0;

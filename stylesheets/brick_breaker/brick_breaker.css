@@ -1,3 +1,11 @@
+.arrow-back {
+  color: #191919;
+}
+
+.arrow-back:hover {
+  color: #b8b8b8;
+}
+
 #brick-breaker-canvas {
   border: 1px solid black;
   margin: 2em 0;
