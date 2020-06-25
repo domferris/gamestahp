@@ -86,15 +86,6 @@ main {
   text-decoration: none;
   top: 10px;
   left: 10px;
-  color: #191919;
-}
-
-.arrow-back:hover {
-  color: #da362c;
-}
-
-.arrow-back:active {
-  color: #191919;
 }
 
 .txt-black {

@@ -1,3 +1,11 @@
+.arrow-back {
+  color: rgb(208, 209, 202);
+
+  &:hover {
+    color: rgb(191, 204, 1);
+  }
+}
+
 #snake-canvas {
   margin: 2em 0;
 }

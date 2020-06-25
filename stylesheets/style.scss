@@ -62,15 +62,6 @@ main {
   text-decoration: none;
   top: 10px;
   left: 10px;
-  color: $black;
-
-  &:hover {
-    color: $red;
-  }
-  
-  &:active {
-    color: $black;
-  }
 }
 
 .txt-black {
