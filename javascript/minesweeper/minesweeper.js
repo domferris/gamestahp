@@ -22,6 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
       grid.appendChild(square);
       squares.push(square);
     }
+
+    // add squares
+    for (let i = 0; i < squares.length; i++) {
+      const isLeftEdge = i % width === 0;
+      const isRightEdge = i === width - 1;
+    }
   }
 
   createBoard();
