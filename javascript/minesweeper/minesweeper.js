@@ -32,49 +32,33 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < squares.length; i++) {
       let totalNum = 0;
       const isLeftEdge = i % width === 0;
-      const isRightEdge = i === width - 1;
+      const isRightEdge = i % width === width - 1;
 
       // add nearby bomb distance numbers on squares that don't have bombs
       if (squares[i].classList.contains('valid')) {
-        // checks if bomb is W of current square of non-left edge squares
-        if (i > 0 && !isLeftEdge && hasBomb(squares[i - 1])) {
-          totalNum++;
-        }
+        // checks if bomb is W of current square
+        if (i > 0 && !isLeftEdge && hasBomb(squares[i - 1])) totalNum++;
 
-        // checks if bomb is NE of current square of non-right edge squares
-        if (i > 9 && !isRightEdge && hasBomb(squares[i + 1 - width])) {
-          totalNum++;
-        }
+        // checks if bomb is NE of current square
+        if (i > 9 && !isRightEdge && hasBomb(squares[i + 1 - width])) totalNum++;
 
-        // // checks if bomb is N of current square (BROKEN)
-        // if (i < 10 && hasBomb(squares[i - width])) {
-        //   totalNum++;
-        // }
+        // checks if bomb is N of current square
+        if (i > 10 && hasBomb(squares[i - width])) totalNum++;
 
-        // // checks if bomb is NW of current square of non-left edge squares (BROKEN)
-        // if (i < 11 && !isLeftEdge && hasBomb(squares[i - 1 - width])) {
-        //   totalNum++;
-        // }
+        // checks if bomb is NW of current square
+        if (i > 11 && !isLeftEdge && hasBomb(squares[i - 1 - width])) totalNum++;
 
-        // checks if bomb is E of current square of non-left edge squares
-        if (i < 98 && !isRightEdge && hasBomb(squares[i + 1])) {
-          totalNum++;
-        }
+        // checks if bomb is E of current square
+        if (i < 98 && !isRightEdge && hasBomb(squares[i + 1])) totalNum++;
 
-        // checks if bomb is SW of current square of non-left edge squares
-        if (i < 90 && !isLeftEdge && hasBomb(squares[i - 1 + width])) {
-          totalNum++;
-        }
+        // checks if bomb is SW of current square
+        if (i < 90 && !isLeftEdge && hasBomb(squares[i - 1 + width])) totalNum++;
 
-        // checks if bomb is SE of current square of non-left edge squares
-        if (i < 88 && !isRightEdge && hasBomb(squares[i + 1 + width])) {
-          totalNum++;
-        }
+        // checks if bomb is SE of current square
+        if (i < 88 && !isRightEdge && hasBomb(squares[i + 1 + width])) totalNum++;
 
-        // checks if bomb is S of current square of non-left edge squares
-        if (i < 89 && hasBomb(squares[i + width])) {
-          totalNum++;
-        }
+        // checks if bomb is S of current square
+        if (i < 89 && hasBomb(squares[i + width])) totalNum++;
 
         squares[i].setAttribute('data', totalNum);
       }
