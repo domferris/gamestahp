@@ -17,4 +17,8 @@
 .bomb {
   background-color: orange;
 }
+
+.checked {
+  background: green;
+}
 /*# sourceMappingURL=minesweeper.css.map */
