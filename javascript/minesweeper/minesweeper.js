@@ -71,13 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const click = (square) => {
     let currentId = square.id;
 
-    // if (isGameOver) return;
+    if (isGameOver) return;
 
     if (square.classList.contains('checked') || square.classList.contains('flag')) return;
 
     if (hasBomb(square)) {
-      console.log('Game Over');
-      // isGameOver = true;
+      gameOver(square);
     } else {
       let totalNum = square.getAttribute('data');
 
@@ -154,6 +153,19 @@ document.addEventListener('DOMContentLoaded', () => {
         click(newSquare);
       }
     }, 10);
+  };
+
+  // game over
+  const gameOver = (square) => {
+    console.log('BOOM game over');
+    isGameOver = true;
+
+    // reveal bomb locations
+    squares.forEach((square) => {
+      if (hasBomb(square)) {
+        square.innerHTML = '💣';
+      }
+    });
   };
 });
 
