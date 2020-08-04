@@ -20,6 +20,7 @@ body {
       flex-wrap: wrap;
   background-color: #bfbfbf;
   border: 8px inset #e1e1e1;
+  margin: 2em 0;
 }
 
 .grid div {
