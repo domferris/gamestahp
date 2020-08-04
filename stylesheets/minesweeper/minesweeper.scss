@@ -1,3 +1,16 @@
+body {
+  background: rgb(192, 192, 192);
+}
+
+.arrow-back {
+  color: rgb(141, 141, 141);
+  
+  &:hover {
+    color: rgb(225, 225, 225);
+  }
+}
+
+// grid/all squares
 .grid {
   height: 480px;
   width: 480px;
@@ -5,20 +18,17 @@
   flex-wrap: wrap;
   background-color: rgb(191, 191, 191);
   border: 8px inset rgb(225, 225, 225);
+  margin: 2em 0;
 }
 
+// individual squares
 .grid div {
   height: 40px;
   width: 40px;
-  // outline: 1px solid red;
   border: 4px outset rgb(225, 225, 225);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.bomb {
-  // background-color: orange;
 }
 
 .checked {

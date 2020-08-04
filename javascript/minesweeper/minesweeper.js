@@ -1,16 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('.grid');
   let width = 10;
-  let bombAmout = 20;
+  let bombAmount = 20;
   let flags = 0;
   let squares = [];
   let isGameOver = false;
 
+  const flagDisplay = document.querySelector('.current-flag-display');
+  flagDisplay.innerHTML = bombAmount - flags;
+
   // create board
   const createBoard = () => {
     // get shuffled game array with random bombs
-    const bombsArray = Array(bombAmout).fill('bomb');
-    const emptyArray = Array(width * width - bombAmout).fill('valid');
+    const bombsArray = Array(bombAmount).fill('bomb');
+    const emptyArray = Array(width * width - bombAmount).fill('valid');
     const gameArray = emptyArray.concat(bombsArray);
     const shuffledArray = gameArray.sort(() => Math.random() - 0.5);
 
@@ -77,16 +80,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const addFlag = (square) => {
     if (isGameOver) return;
-    if (!square.classList.contains('checked') && flags < bombAmout) {
+    if (!square.classList.contains('checked') && flags < bombAmount) {
       if (!square.classList.contains('flag')) {
         square.classList.add('flag');
         square.innerHTML = '🚩';
         flags++;
+        flagDisplay.innerHTML = bombAmount - flags;
+
         checkForWin();
       } else {
         square.classList.remove('flag');
         square.innerHTML = '';
         flags--;
+        flagDisplay.innerHTML = bombAmount - flags;
       }
     }
   };
@@ -202,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
         matches++;
       }
 
-      if (matches === bombAmout) {
+      if (matches === bombAmount) {
         console.log('WIN');
         isGameOver = true;
       }

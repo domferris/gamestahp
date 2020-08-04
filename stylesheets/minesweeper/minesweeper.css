@@ -1,3 +1,15 @@
+body {
+  background: silver;
+}
+
+.arrow-back {
+  color: #8d8d8d;
+}
+
+.arrow-back:hover {
+  color: #e1e1e1;
+}
+
 .grid {
   height: 480px;
   width: 480px;
@@ -8,6 +20,7 @@
       flex-wrap: wrap;
   background-color: #bfbfbf;
   border: 8px inset #e1e1e1;
+  margin: 2em 0;
 }
 
 .grid div {
