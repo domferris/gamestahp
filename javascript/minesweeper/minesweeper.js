@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('.grid');
   let width = 10;
   let bombAmout = 20;
+  let flags = 0;
   let squares = [];
   let isGameOver = false;
 
@@ -23,9 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
       grid.appendChild(square);
       squares.push(square);
 
+      // normal click
       square.addEventListener('click', (event) => {
         click(square);
       });
+
+      // ctrl+click
+      square.oncontextmenu = (event) => {
+        event.preventDefault();
+        addFlag(square);
+      };
     }
 
     // add numbers to squares
@@ -67,17 +75,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   createBoard();
 
+  const addFlag = (square) => {
+    if (isGameOver) return;
+    if (!square.classList.contains('checked') && flags < bombAmout) {
+      if (!square.classList.contains('flag')) {
+        square.classList.add('flag');
+        square.innerHTML = '🚩';
+        flags++;
+        checkForWin();
+      } else {
+        square.classList.remove('flag');
+        square.innerHTML = '';
+        flags--;
+      }
+    }
+  };
+
   // square click actions
   const click = (square) => {
     let currentId = square.id;
 
-    // if (isGameOver) return;
+    if (isGameOver) return;
 
     if (square.classList.contains('checked') || square.classList.contains('flag')) return;
 
     if (hasBomb(square)) {
-      console.log('Game Over');
-      // isGameOver = true;
+      gameOver(square);
     } else {
       let totalNum = square.getAttribute('data');
 
@@ -154,6 +177,35 @@ document.addEventListener('DOMContentLoaded', () => {
         click(newSquare);
       }
     }, 10);
+  };
+
+  // game over
+  const gameOver = (square) => {
+    console.log('BOOM game over');
+    isGameOver = true;
+
+    // reveal bomb locations
+    squares.forEach((square) => {
+      if (hasBomb(square)) {
+        square.innerHTML = '💣';
+      }
+    });
+  };
+
+  // check for win
+  const checkForWin = () => {
+    let matches = 0;
+
+    for (let i = 0; i < squares.length; i++) {
+      if (squares[i].classList.contains('flag') && hasBomb(squares[i])) {
+        matches++;
+      }
+
+      if (matches === bombAmout) {
+        console.log('WIN');
+        isGameOver = true;
+      }
+    }
   };
 });
 
