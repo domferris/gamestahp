@@ -1,3 +1,15 @@
+body {
+  background: rgb(192, 192, 192);
+}
+
+.arrow-back {
+  color: rgb(141, 141, 141);
+  
+  &:hover {
+    color: rgb(225, 225, 225);
+  }
+}
+
 .grid {
   height: 480px;
   width: 480px;
