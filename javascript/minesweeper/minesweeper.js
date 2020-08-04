@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (square.classList.contains('checked') || square.classList.contains('flag')) return;
 
     if (hasBomb(square)) {
+      square.style.backgroundColor = 'rgb(248, 6, 12)';
       gameOver(square);
     } else {
       let totalNum = square.getAttribute('data');

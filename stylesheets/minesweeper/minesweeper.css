@@ -1,24 +1,32 @@
 .grid {
-  height: 400px;
-  width: 400px;
+  height: 480px;
+  width: 480px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background-color: grey;
+  background-color: #bfbfbf;
+  border: 8px inset #e1e1e1;
 }
 
 .grid div {
   height: 40px;
   width: 40px;
-}
-
-.bomb {
-  background-color: orange;
+  border: 4px outset #e1e1e1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .checked {
-  background: green;
+  background: #d2d2d2;
+  border: 4px inset #c8c8c8;
 }
 /*# sourceMappingURL=minesweeper.css.map */
