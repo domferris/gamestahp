@@ -1,16 +1,15 @@
-let canvas, context, health, currentScore;
+let canvas, context, currentScore;
 
 window.onload = () => {
-  canvas = document.getElementById("snake-canvas");
-  context = canvas.getContext("2d");
+  canvas = document.getElementById('snake-canvas');
+  context = canvas.getContext('2d');
 
-  document.addEventListener("keydown", playerInput);
+  document.addEventListener('keydown', playerInput);
 
   // RENDER X/SEC
   const x = 14;
   setInterval(drawSnake, 1000 / x);
 
-  health = 3;
   currentScore = 0;
 };
 
@@ -49,7 +48,7 @@ const drawSnake = () => {
   }
 
   // SNAKE BITES APPLE?
-  const currentScoreDisplay = document.querySelector(".current-score-display");
+  const currentScoreDisplay = document.querySelector('.current-score-display');
   if (snakeX == appleX && snakeY == appleY) {
     tailSize++;
 
@@ -61,15 +60,15 @@ const drawSnake = () => {
   }
 
   // BACKGROUND FILL
-  context.fillStyle = "rgb(191, 204, 1)";
+  context.fillStyle = 'rgb(191, 204, 1)';
   context.fillRect(0, 0, canvas.width, canvas.height);
 
   // APPLE FILL
-  context.fillStyle = "rgb(64, 46, 1)";
+  context.fillStyle = 'rgb(64, 46, 1)';
   context.fillRect(appleX * tileSize, appleY * tileSize, tileSize, tileSize);
 
   // SNAKE FILL
-  context.fillStyle = "rgb(114, 96, 1)";
+  context.fillStyle = 'rgb(114, 96, 1)';
   for (var i = 0; i < snakeTrail.length; i++) {
     context.fillRect(
       snakeTrail[i].x * tileSize,
@@ -81,7 +80,6 @@ const drawSnake = () => {
     // SNAKE BITES TAIL?
     if (snakeTrail[i].x == snakeX && snakeTrail[i].y == snakeY) {
       tailSize = defaultTailSize;
-      // health -= 1 AFTER game start
     }
   }
 
