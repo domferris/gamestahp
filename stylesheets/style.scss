@@ -29,6 +29,7 @@ main {
 }
 
 .help-toggle {
+  z-index: 2;
   position: absolute;
   font-size: 2rem;
   text-decoration: none;
@@ -39,6 +40,18 @@ main {
   &:hover {
     color: $red;
   }
+}
+
+.help {
+  z-index: 1;
+  width: 100vh;
+  height: 100vh;
+  position: absolute;
+  background: rgba(200, 200, 200, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .game-selection {

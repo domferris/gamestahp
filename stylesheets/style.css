@@ -35,6 +35,7 @@ main {
 }
 
 .help-toggle {
+  z-index: 2;
   position: absolute;
   font-size: 2rem;
   text-decoration: none;
@@ -45,6 +46,27 @@ main {
 
 .help-toggle:hover {
   color: #da362c;
+}
+
+.help {
+  z-index: 1;
+  width: 100vh;
+  height: 100vh;
+  position: absolute;
+  background: rgba(200, 200, 200, 0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .game-selection {
