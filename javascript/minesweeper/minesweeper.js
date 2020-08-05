@@ -113,6 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (totalNum != 0) {
         square.classList.add('checked');
+        if (totalNum == 1) square.classList.add('one');
+        if (totalNum == 2) square.classList.add('two');
+        if (totalNum == 3) square.classList.add('three');
+        if (totalNum == 4) square.classList.add('four');
         square.innerHTML = totalNum;
         return;
       }
@@ -193,7 +197,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // reveal bomb locations
     squares.forEach((square) => {
-      if (hasBomb(square)) {
+      if (hasBomb(square) && square.classList.contains('flag')) {
+        square.style.backgroundColor = 'rgb(100, 216, 100)';
+        square.innerHTML = '🚩';
+      } else if (hasBomb(square)) {
         square.innerHTML = '💣';
       }
     });

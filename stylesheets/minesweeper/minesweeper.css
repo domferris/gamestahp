@@ -42,4 +42,20 @@ body {
   background: #d2d2d2;
   border: 4px inset #c8c8c8;
 }
+
+.one {
+  color: #0400c3;
+}
+
+.two {
+  color: #107810;
+}
+
+.three {
+  color: #e90a07;
+}
+
+.four {
+  color: #070572;
+}
 /*# sourceMappingURL=minesweeper.css.map */
