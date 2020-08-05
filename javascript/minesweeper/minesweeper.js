@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const addFlag = (square) => {
     if (isGameOver) return;
     if (!square.classList.contains('checked') && flags < bombAmount) {
-      if (!square.classList.contains('flag')) {
+      if (!hasFlag(square)) {
         square.classList.add('flag');
         square.innerHTML = '🚩';
         flags++;
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (isGameOver) return;
 
-    if (square.classList.contains('checked') || square.classList.contains('flag')) return;
+    if (square.classList.contains('checked') || hasFlag(square)) return;
 
     if (hasBomb(square)) {
       square.style.backgroundColor = 'rgb(248, 6, 12)';
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // reveal bomb locations
     squares.forEach((square) => {
-      if (hasBomb(square) && square.classList.contains('flag')) {
+      if (hasBomb(square) && hasFlag(square)) {
         square.style.backgroundColor = 'rgb(100, 216, 100)';
         square.innerHTML = '🚩';
       } else if (hasBomb(square)) {
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let matches = 0;
 
     for (let i = 0; i < squares.length; i++) {
-      if (squares[i].classList.contains('flag') && hasBomb(squares[i])) {
+      if (hasFlag(squares[i]) && hasBomb(squares[i])) {
         matches++;
       }
 
@@ -226,4 +226,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // detect if square has bomb
 const hasBomb = (square) => {
   return square.classList.contains('bomb');
+};
+
+// detect if square has flag
+const hasFlag = (square) => {
+  return square.classList.contains('flag');
 };
