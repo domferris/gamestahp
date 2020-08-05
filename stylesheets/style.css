@@ -16,6 +16,10 @@ p, a {
   line-height: 1.5em;
 }
 
+strong {
+  text-decoration: underline;
+}
+
 main {
   height: 100vh;
   width: 100vw;
@@ -57,10 +61,6 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -73,6 +73,34 @@ main {
 .help.active {
   opacity: 1;
   z-index: 1;
+}
+
+.help .help-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.help .help-modal .game-title {
+  margin-bottom: 1rem;
+}
+
+.help .help-modal .game-tagline {
+  margin-bottom: 1.5rem;
+}
+
+.help .help-modal p:not(:last-child) {
+  margin-bottom: 0.5rem;
 }
 
 .game-selection {
