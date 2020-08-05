@@ -34,6 +34,19 @@ main {
           align-items: center;
 }
 
+.help {
+  position: absolute;
+  font-size: 2rem;
+  text-decoration: none;
+  top: 10px;
+  right: 10px;
+  color: #191919;
+}
+
+.help:hover {
+  color: #da362c;
+}
+
 .game-selection {
   display: -webkit-box;
   display: -ms-flexbox;

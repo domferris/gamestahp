@@ -2,11 +2,11 @@ body {
   background: silver;
 }
 
-.arrow-back {
+.arrow-back, .help {
   color: #8d8d8d;
 }
 
-.arrow-back:hover {
+.arrow-back:hover, .help:hover {
   color: #e1e1e1;
 }
 
