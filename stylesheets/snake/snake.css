@@ -6,11 +6,11 @@ p {
   color: #d0d1ca;
 }
 
-.arrow-back, .help {
+.arrow-back, .help-toggle {
   color: #d0d1ca;
 }
 
-.arrow-back:hover, .help:hover {
+.arrow-back:hover, .help-toggle:hover {
   color: #bfcc01;
 }
 

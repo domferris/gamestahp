@@ -10,11 +10,11 @@ img {
   display: none;
 }
 
-.arrow-back, .help {
+.arrow-back, .help-toggle {
   color: #191919;
 }
 
-.arrow-back:hover, .help:hover {
+.arrow-back:hover, .help-toggle:hover {
   color: #b8b8b8;
 }
 
