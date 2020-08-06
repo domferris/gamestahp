@@ -11,19 +11,38 @@
   <!-- STYLESHEETS -->
   <link rel="stylesheet" href="./stylesheets/style.css">
   <link rel="stylesheet" href="./stylesheets/minesweeper/minesweeper.css">
+  <link rel="stylesheet" href="./stylesheets/components/help_modal.css">
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
-  <script type="module" src="javascript/minesweeper/minesweeper.js"></script>
 </head>
 <body>
   <a href="index.html" class="arrow-back">&lt;</a>
+  <a href="#" class="help-toggle">?</a>
+  <aside class="help">
+    <div class="help-modal">
+      <h1 class="game-title">Minesweeper</h1>
+      
+      <h4 class="game-tagline">The game you didn't understand on your first PC.</h4>
+
+      <h3>How to play</h3>
+
+      <p>- Click squares, <strong>avoid bombs</strong>.</p>
+      <p>- <strong>Numbers</strong> on squares indicate how many bombs are nearby. +1/bomb</p>
+      <p>- To win, you must use all <strong>flags</strong> on all suspected bomb locations. 1 flag/bomb</p>
+      <p>- If you think you found a bomb, put a flag on the square by clicking while <strong>holding control</strong>.</p>
+      <p>* To restart, <strong>refresh</strong> your browser. (I'm working on this. Sorry!)</p>
+    </div>
+  </aside>
+  
   <section class="game-container">
     <aside class="game-info">
-      <p>flags: <span class="current-flag-display"></span></p>
+      <p>Flags: <span class="current-flag-display"></span></p>
     </aside>
     <div class="grid"></div>
   </section>
+
+  <script type="module" src="javascript/minesweeper/minesweeper.js"></script>
+  <script src="./javascript/components/help_modal.js"></script>
 </body>
 </html>

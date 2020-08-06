@@ -11,22 +11,44 @@
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="./stylesheets/style.css">
     <link rel="stylesheet" href="./stylesheets/brick_breaker/brick_breaker.css">
+    <link rel="stylesheet" href="./stylesheets/components/help_modal.css">
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   </head>
   <body>
     <a href="index.html" class="arrow-back">&lt;</a>
+    <a href="#" class="help-toggle">?</a>
+    <aside class="help">
+      <div class="help-modal">
+        <h1 class="game-title">Brick Breaker</h1>
+
+        <h4 class="game-tagline">As seen on the original Game Boy (1989).</h4>
+  
+        <h3>How to play</h3>
+
+        <p>- Keep the <strong>ball</strong> alive by bouncing it between breaking bricks.</p>
+        <p>- Press the <strong>spacebar</strong> to start the game.</p>
+        <p>- To <strong>move the paddle</strong> left and right, use A and D or the left and right arrow keys.</p>
+        <p>- Every brick broken grants <strong>one point</strong>.</p>
+        <p>- <strong>Clear all bricks</strong> to move to the next level.</p>
+        <p>- If the you miss hitting the ball, one life is <strong>lost</strong>.</p>
+        <p>- Three lives lost results in a <strong>game over</strong>.</p>
+        <p>* There are currently only two levels and no difficulty ramping. In the works :)</p>
+      </div>
+    </aside>
+    
     <section class="game-container">
       <img id="img-ball" src="./assets/images/brick_breaker/ball.png" alt="">
       <img id="img-brick" src="./assets/images/brick_breaker/brick.png" alt="">
       <aside class="game-info">
-        <p>lives: <span class="lives-display">3</span></p>
-        <p>score: <span class="score-display">0</span></p>
+        <p>Lives: <span class="lives-display">3</span></p>
+        <p>Score: <span class="score-display">0</span></p>
       </aside>
       <canvas id="brick-breaker-canvas" width="800" height="600"></canvas>
     </section>
 
     <script type="module" src="./javascript/brick_breaker/brick_breaker.js"></script>
+    <script src="./javascript/components/help_modal.js"></script>
   </body>
 </html>

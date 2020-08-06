@@ -1,21 +1,22 @@
-.arrow-back {
-  color: #d0d1ca;
-}
-
-.arrow-back:hover {
-  color: #bfcc01;
-}
-
-#snake-canvas {
-  margin: 2em 0;
-}
-
 body {
   background: #444b55;
 }
 
 p {
   color: #d0d1ca;
+}
+
+.arrow-back, .help-toggle {
+  z-index: 10;
+  color: #d0d1ca;
+}
+
+.arrow-back:hover, .help-toggle:hover {
+  color: #bfcc01;
+}
+
+#snake-canvas {
+  margin: 2em 0;
 }
 
 .high-scores .high-score {

@@ -11,15 +11,34 @@
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="./stylesheets/style.css">
     <link rel="stylesheet" href="./stylesheets/snake/snake.css">
+    <link rel="stylesheet" href="./stylesheets/components/help_modal.css">
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   </head>
   <body>
     <a href="index.html" class="arrow-back">&lt;</a>
+    <a href="#" class="help-toggle">?</a>
+    <aside class="help">
+      <div class="help-modal">
+        <h1 class="game-title">Snake</h1>
+
+        <h4 class="game-tagline">Just like you remember it from your aunt's Nokia.</h4>
+  
+        <h3>How to play</h3>
+
+        <p>- Eat the "<strong>apples</strong>" to increase your score.</p>
+        <p>- Every apple eaten adds length to your <strong>tail</strong>.</p>
+        <p>- Use <strong>WASD</strong> or the <strong>arrow keys</strong> to change your snake's direction.</p>
+        <p>- Move the snake in <strong>any direction</strong> to start playing.</p>
+        <p>- If you eat your own tail or move in the opposite direction you are moving, <strong>you lose</strong>.</p>
+        <p>* No game over state currently implemented so you can technically keep playing forever. (<strong>Working on this</strong>!)</p>
+      </div>
+    </aside>
+    
     <section class="game-container">
       <aside class="game-info">
-        <p>score: <span class="current-score-display">0</span></p>
+        <p>Score: <span class="current-score-display">0</span></p>
       </aside>
       <canvas id="snake-canvas" width="400" height="400"></canvas>
       <!-- <p class="high-scores">
@@ -34,5 +53,6 @@
     </section>
 
     <script src="./javascript/snake/snake.js"></script>
+    <script src="./javascript/components/help_modal.js"></script>
   </body>
 </html>

@@ -12,8 +12,12 @@ h1 {
   margin-bottom: 1.5em;
 }
 
-p, a {
-  line-height: 1.5em;
+p, a, h4 {
+  line-height: 1.75em;
+}
+
+strong {
+  text-decoration: underline;
 }
 
 main {
@@ -32,6 +36,44 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.arrow-back {
+  position: absolute;
+  font-size: 2rem;
+  text-decoration: none;
+  top: 10px;
+  left: 10px;
+}
+
+.arrow-back.helping {
+  color: #191919;
+}
+
+.arrow-back.helping:hover {
+  color: #da362c;
+}
+
+.help-toggle {
+  z-index: 10;
+  position: absolute;
+  font-size: 2rem;
+  text-decoration: none;
+  top: 10px;
+  right: 10px;
+  color: #191919;
+}
+
+.help-toggle:hover {
+  color: #da362c;
+}
+
+.help-toggle.helping {
+  color: #191919;
+}
+
+.help-toggle.helping:hover {
+  color: #da362c;
 }
 
 .game-selection {
@@ -77,14 +119,6 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.arrow-back {
-  position: absolute;
-  font-size: 2rem;
-  text-decoration: none;
-  top: 10px;
-  left: 10px;
 }
 
 .txt-black {
