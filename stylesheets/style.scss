@@ -15,7 +15,7 @@ h1 {
   margin-bottom: 1.5em;
 }
 
-p, a {
+p, a, h4 {
   line-height: 1.75em;
 }
 
@@ -32,6 +32,22 @@ main {
   align-items: center;
 }
 
+.arrow-back {
+  position: absolute;
+  font-size: 2rem;
+  text-decoration: none;
+  top: 10px;
+  left: 10px;
+
+  &.helping {
+    color: $black;
+  }
+
+  &.helping:hover {
+    color: $red;
+  }
+}
+
 .help-toggle {
   z-index: 10;
   position: absolute;
@@ -42,6 +58,14 @@ main {
   color: $black;
 
   &:hover {
+    color: $red;
+  }
+
+  &.helping {
+    color: $black;
+  }
+
+  &.helping:hover {
     color: $red;
   }
 }
@@ -71,14 +95,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.arrow-back {
-  position: absolute;
-  font-size: 2rem;
-  text-decoration: none;
-  top: 10px;
-  left: 10px;
 }
 
 .txt-black {

@@ -9,4 +9,6 @@ helpToggle.addEventListener('click', (event) => {
   helpToggle.innerHTML = toggleCharacter;
 
   helpModal.classList.toggle('active');
+  helpToggle.classList.toggle('helping');
+  arrowBack.classList.toggle('helping');
 });
